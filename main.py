@@ -8,15 +8,6 @@ except ImportError:
 from argparse import ArgumentParser
 from os import system
 
-def setup(): # Reads the local config file to find the otag which is used to authenticate with the github servers
-    openFile = open(".config")
-    OTAG = ""
-    for n in openFile:
-        if ("OTAG" in n):
-            OTAG = n.split(":")[1][:-1] # We only want the second part
-            break
-    return OTAG
-
 def search(githubObject,term, limit, user=None, language=None, printResult=True):
     QUERY = f"{term}"
     FOUND_RESULTS = []
@@ -68,7 +59,7 @@ URL -> {n.clone_url}
     print("[!] Done")
 
 if __name__ == "__main__":
-    githubObject = Github(str(setup())) # This will allow us to communicate with the github servers
+    githubObject = Github("INSERT YOUR PAT HERE") # This will allow us to communicate with the github servers
     parser = ArgumentParser()
     parser.add_argument("--search", "-s", help="Searches github for a repo with the same name as provided")
     parser.add_argument("--install", "-i", help="Downloads the repo with the same name as provided")

@@ -73,3 +73,5 @@ if __name__ == "__main__":
         search(githubObject, args.search, args.limit, args.user, args.language)
     elif (args.install):
         install(githubObject, args.install, args.limit, args.user, args.language, args.direct_link)
+    else:
+        parser.print_help()
